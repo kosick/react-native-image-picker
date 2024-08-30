@@ -133,7 +133,9 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
                 libraryIntent.addCategory(Intent.CATEGORY_OPENABLE);
             }
         } else {
-            libraryIntent = new Intent(MediaStore.ACTION_PICK_IMAGES);
+            libraryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+            libraryIntent.addCategory(Intent.CATEGORY_OPENABLE);
+            // libraryIntent = new Intent(MediaStore.ACTION_PICK_IMAGES); // kosick - 원래 이거였는데 이럴 경우 google photos 를 못가져오는 문제가 있어서 수정.
         }
 
         if (!isSingleSelect) {
